@@ -40,12 +40,12 @@ const Carrito = () => {
         <tr>
           <td><img src={pizza.img} alt={pizza.name} className='w-25'/> <b>{pizza.name}</b></td>
                   
-          <td><b>valor ${pizza.price * pizza.count}</b></td>
+          <td><b className="mt-3">valor ${pizza.price * pizza.count}</b></td>
                   
-          <td><button className='btn btn-success ' onClick={() => increase(pizza.count++) }> ➕ </button></td>
-          <td><p>{pizza.count}</p></td>
-          <td><button className='btn btn-light border-danger text-danger 'onClick={() => diminish(pizza.count--) } > ➖ </button></td>
-          <td><button className="btn btn-danger mx-3" onClick={() => eliminarTodo(pizza.id)}> 🗑 </button></td>
+          <td><button className='btn btn-success mt-3' onClick={() => increase(pizza.count++) }> ➕ </button></td>
+          <td><p className="mt-3"><b>{pizza.count}</b></p></td>
+          <td><button className='btn btn-light border-danger text-danger mt-3'onClick={() => diminish(pizza.count--) } > ➖ </button></td>
+          <td><button className="btn btn-danger mx-3 mt-3" onClick={() => eliminarTodo(pizza.id)}> 🗑 </button></td>
         </tr>
       </tbody>
     </Table>

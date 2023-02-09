@@ -5,7 +5,7 @@ import {Context} from '../context/UserProvider'
 
 export const PizzaSelected = () => {
     const [pizzaSelected, setPizzaSelected] = useState({});
-    const { pizzas, addCar, increase, diminish } = useContext(Context);
+    const { pizzas, addCar} = useContext(Context);
     const { id } = useParams();
 
 useEffect(() =>{
@@ -48,10 +48,6 @@ useEffect(() =>{
               <p className="card-text animate__animated animate__swing">
                 <b>Valor: ${pizzaSelected.price}</b> 
               </p> 
-
-              {/* <button className='btn btn-success mx-2' onClick={() => increase(pizzaSelected) }> ➕ </button>
-              <span></span>
-              <button className='btn btn-light border-danger'onClick={() => diminish(pizzaSelected) } > ➖ </button> */}
 
               <button to="/carrito" className='btn btn-danger mx-4' onClick={() => addCar(pizzaSelected)}> Añadir 🛒</button>
             </div>

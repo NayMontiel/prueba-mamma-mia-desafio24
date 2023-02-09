@@ -11,7 +11,7 @@ const NavBar = () => {
     <nav className="navBar p-3 mt-2">
       
         <Link to="/" className="link mx-3">
-          <h3>🍕 Pizzeria Mama Mia!</h3>
+          <h3>🍕 Pizzeria Mamma Mía!</h3>
         </Link>
         
         <Link to="/carrito"  className="link mx-3 ">

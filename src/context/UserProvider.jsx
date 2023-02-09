@@ -22,11 +22,6 @@ const UserProvider = (props) => {
 
   //   carrito añadir
   const addCar = ({ id, price, img, name }) => {
-    const productoIndex = total.findIndex((item) => item.id === id);
-    const producto = { id, name, img, price, count: 1 };
-
-    if (productoIndex >= 0) {
-      total[productoIndex].count++;
 
       Swal.fire({
         title: "Éxito!",
@@ -34,6 +29,11 @@ const UserProvider = (props) => {
         icon: "success",
         confirmButtonText: "ok",
       });
+    const productoIndex = total.findIndex((item) => item.id === id);
+    const producto = { id, name, img, price, count: 1 };
+
+    if (productoIndex >= 0) {
+      total[productoIndex].count++; 
 
       setTotal([...total]);
     } else {
@@ -41,7 +41,6 @@ const UserProvider = (props) => {
     }
   };
 
-  console.log(total);
   //   boton aumentar
   const increase = (i) => {
     total.find((element) => {
@@ -53,23 +52,24 @@ const UserProvider = (props) => {
   };
 
   // boton disminuir no logro eliminar con esta opcion
-  const diminish = (i) => {
-    const count = total[i];
+  const diminish = (id) => {
+    const count = total[id];
 
     if (count === 1) {
-      total.slice(i, 1);
+      total.slice(id, 1);
     } else {
       total.find((element) => {
-        if (element.id === i) {
+        if (element.id === id) {
           element.count--;
-          console.log(element.count);
+          console.log(element.count--);
           if (element.count === 0) {
-            console.log("ingresa a condicion");
-            console.log(setTotal);
+            // console.log("ingresa a condicion");
+            // console.log(setTotal);
             setTotal((old) => {
-              console.log(i);
-              old.filter((item) => item.id !== i);
+             
+              old.filter((item) => item.id !== id);
             });
+            return;
           }
         }
       });
